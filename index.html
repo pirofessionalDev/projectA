@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RapSheet Login</title>
+  <style>
+    body {
+      background: #0b0f0a; /* deep dark background */
+      color: #7bff7b; /* dull green */
+      font-family: "Courier New", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .terminal {
+      border: 2px solid #1f3b1f;
+      box-shadow: 0 0 10px rgba(50, 255, 50, 0.1);
+      padding: 20px 40px;
+      width: 350px;
+      text-align: center;
+      background: #0d120e;
+    }
+
+    .title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #6cff6c;
+      text-shadow: 0 0 5px rgba(50, 255, 50, 0.2);
+      letter-spacing: 2px;
+    }
+
+    input {
+      background: black;
+      border: 1px solid #2f4f2f;
+      color: #6eff6e;
+      padding: 8px;
+      margin: 10px 0;
+      width: 90%;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus {
+      border: 1px solid #6eff6e;
+      box-shadow: 0 0 6px rgba(50, 255, 50, 0.4);
+    }
+
+    button {
+      background: #122112;
+      border: 1px solid #2f4f2f;
+      color: #6eff6e;
+      padding: 8px 20px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #1a2f1a;
+      box-shadow: 0 0 6px rgba(50, 255, 50, 0.3);
+    }
+
+    /* Logging animation */
+    .logging-text {
+      margin-top: 20px;
+      color: #6cff6c;
+      font-size: 14px;
+      letter-spacing: 1px;
+      white-space: pre;
+      overflow: hidden;
+      border-right: 2px solid #6cff6c;
+      animation: typing 2s steps(30, end), blink 0.8s step-end infinite;
+      display: inline-block;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="title">== RAP SHEET LOGIN ==</div>
+    <form id="loginForm">
+      <input type="text" placeholder="Username" required><br>
+      <input type="password" placeholder="Password" required><br>
+      <button type="submit">LOGIN</button>
+    </form>
+    <div id="loggingText" style="display:none;">
+      <span class="logging-text">LOGGING IN...</span>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const loggingText = document.getElementById("loggingText");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      form.style.display = "none";
+      loggingText.style.display = "block";
+
+      setTimeout(() => {
+        loggingText.innerHTML = "<span class='logging-text'>ACCESS GRANTED</span>";
+      }, 2500);
+    });
+  </script>
+</body>
+</html>
